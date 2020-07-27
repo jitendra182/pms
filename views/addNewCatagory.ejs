@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <%- include("headerNav") %>
+        <!-- Add Catagory form STARTs here -->
+        <div class="row mt-5">
+            <div class="col-md-6 mx-auto border">
+                <% if( errors !=''){ %>
+                      <p class="text-center text-danger"><strong><%=errors.passwordCatagory.msg %></strong></p>
+                    <% } %>
+                <% if(success !=""){ %>
+                    <p class="text-center text-success"><strong><%=success %></strong></p>
+                <% } %>
+                <h5 class="alert alert-primary">Add New Password Catagory</h5>
+                <form action="/addnew-catagory" method="post">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">Catagory Name</div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="catagory" name="passwordCatagory"
+                                    placeholder="Enter Catagory" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Add Catagory </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <a href="/password-catagory">View All Catagory Lists</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Add catagory Form ENDs here -->
+    </div>
+    <%- include("footer") %>
+</body>
+
+</html>
