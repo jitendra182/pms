@@ -13,6 +13,8 @@ var passwordCatagoryRouter = require("./routes/passwordCatagory");
 var passwordListRouter = require("./routes/passwordList");
 var joinRouter= require("./routes/join")
 
+var passwordCatagoryApi= require("./api/passwordCatagory");
+
 var app = express();
 
 // view engine setup
@@ -34,6 +36,8 @@ app.use('/password-catagory',passwordCatagoryRouter);
 app.use('/password-list',passwordListRouter);
 app.use("/join",joinRouter);
 
+app.use('/api/password-catagory',passwordCatagoryApi);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -47,7 +51,13 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
+  res.status(404).json({
+    message:"Page Not Found"
+  });
+  res.status(500).json({
+    message:"Internal Server Error"
+  });
 });
 
 module.exports = app;

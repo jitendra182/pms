@@ -4,7 +4,7 @@ const mongoosePaginate =require('mongoose-paginate');
 
 const addPasswordSchema= new mongoose.Schema({
     passwordCatagory:{ type: String,
-        require: true,
+        required: true,
         index:{ unique: true},
     },
     projectName:{ type:String,

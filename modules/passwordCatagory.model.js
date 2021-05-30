@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const passCatagorySchema= new mongoose.Schema({
     passwordCatagory:{type:String,
         required:true,
+        index:{ unique: true }
     },
     date:{
         type:Date,
@@ -10,5 +11,5 @@ const passCatagorySchema= new mongoose.Schema({
     }
 });
 
-const passCatagorySModel=mongoose.model("passwordCatagory",passCatagorySchema);
-module.exports=passCatagorySModel;
+const passCatagoryModel=mongoose.model("passwordCatagory",passCatagorySchema);
+module.exports=passCatagoryModel;
